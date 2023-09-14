@@ -10,22 +10,19 @@
 
 #include "Particle.h"
 
-
-
 class Swarm {
 public:
-	const static int NPARTICLES = 5000;
+    static const int NPARTICLES = 5000;
+
+    Swarm();
+    virtual ~Swarm();
+    
+    void update(int elapsed);
+    const Particle* getParticles() const;
 
 private:
-	Particle * m_pParticles;
-	int lastTime;
-
-public:
-	Swarm();
-	virtual ~Swarm();
-	void update(int elapsed);
-
-	const Particle * const getParticles() { return m_pParticles; };
+    Particle* m_pParticles;
+    int lastTime;
 };
 
 #endif /* SWARM_H_ */
